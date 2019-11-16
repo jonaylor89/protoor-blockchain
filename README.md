@@ -1,3 +1,3 @@
 # protoor-bloackchain
 
-A description of this package.
+Protocol Oriented Blockchain written in swift
