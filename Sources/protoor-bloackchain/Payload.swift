@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Utils
-
 public struct Payload {
     public let value: Int
     public let account: String

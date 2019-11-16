@@ -7,9 +7,6 @@
 
 import Foundation
 
-import Payload
-import Utils
-
 struct Block: Codable {
     let hash: UUID().uuidString()
     let payload: Payload
