@@ -5,12 +5,6 @@ import PackageDescription
 
 let package = Package(
     name: "protoor-bloackchain",
-  /Users/johannes/Repos/protoor-blockchain/protoor-bloackchain/Sources  products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
-        .library(
-            name: "protoor-bloackchain",
-            targets: ["protoor-bloackchain"]),
-    ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
