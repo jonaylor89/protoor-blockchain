@@ -107,17 +107,13 @@ extension Chain: Response {
                 )
         }
         let toAccount = find(account: to)
-        return (toAccount != nil ? self
-          : transact(transaction: Transaction.creation(account: to,
-                                                         value: 0)))
-           .create(payload: Payload(value: -value, account: from),
-               transaction: Transaction.subtractionDescription)
-           .create(payload: Payload(value: value, account: to),
-               transaction: Transaction.additionDescription)
-           .create(payload: Payload(value: (toAccount?.payload.value ?? 0) + value, account: to),
-               transaction: Transaction.valueDescription)
-           .create(payload: Payload(value: fromAccount.payload.value - value, account: from),
-               transaction: Transaction.valueDescription)
+        
+        return (toAccount != nil ? self : transact(transaction: Transaction.creation(account: to, value: 0)))
+           .create(payload: Payload(value: -value, account: from), transaction: Transaction.subtractionDescription)
+           .create(payload: Payload(value: value, account: to), transaction: Transaction.additionDescription)
+           .create(payload: Payload(value: (toAccount?.payload.value ?? 0) + value, account: to), transaction: Transaction.valueDescription)
+           .create(payload: Payload(value: fromAccount.payload.value - value, account: from), transaction: Transaction.valueDescription)
+        
       default: return self
       }
     }

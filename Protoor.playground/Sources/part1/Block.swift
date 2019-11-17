@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Block: Codable {
-    let hash = UUID().uuidString;
-    let payload: Payload
-    let transaction: String
-    let previous: String
-    let index: Int
+public struct Block: Codable {
+    public let hash = UUID().uuidString;
+    public let payload: Payload
+    public let transaction: String
+    public let previous: String?
+    public let index: Int
 }
 
 
