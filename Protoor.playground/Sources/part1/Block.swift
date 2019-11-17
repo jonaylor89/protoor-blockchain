@@ -15,6 +15,4 @@ struct Block: Codable {
     let index: Int
 }
 
-// extension Block: Codable {}
-
 

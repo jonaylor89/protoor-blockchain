@@ -70,8 +70,8 @@ extension Fetcher {
     private static func getAccount(input: Accounts) -> String {
         switch input {
         case .new:
-            let output = UUID().uuidString()
-            Accounts.account.append(output)
+            let output = UUID().uuidString
+            Accounts.accounts.append(output)
             
             return output
         case .base:
@@ -93,8 +93,8 @@ extension Fetcher {
     
     static func generated(initial: Int = 10_000_000, maximum: Int = 1_000, count: Int = 1_000) -> [Fetch] {
         
-        let fetches: [Fetch] = (0..count).map {
-            let latency: UInt = UInt32(0)
+        let fetches: [Fetch] = (0...count).map {
+            let latency: UInt32 = UInt32(0)
             switch $0 {
             case 0:
                 return (
