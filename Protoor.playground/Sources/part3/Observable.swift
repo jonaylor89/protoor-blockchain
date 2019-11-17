@@ -24,7 +24,7 @@ extension Observable {
 }
 
 extension Observable {
-    func register(observer: Observer, forKey: String) {
+    func register(observer: Observer, forKey key: String) {
         if var current = observers {
             current.updateValue(observer, forKey: key)
             Self.observers.updateValue(current, forKey: identifier)
