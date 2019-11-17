@@ -21,37 +21,6 @@ class Server {
 }
 
 extension Server {
-    private enum Method: String {
-        case get = "GET"
-        case post = "POST"
-    }
-    
-    private enum Path: String {
-      case value = "/value"
-      case chain = "/chain"
-      case creation = "/creation"
-      case exchange = "/exchange"
-        
-    var description: String {
-        return String(rawValue.dropFirst())
-      }
-    }
-}
-
-extension Server {
-    private struct Creation {
-        let account: String
-        let value: Int?
-    }
-    
-    private struct Exchange {
-        let to: String
-        let from: String
-        let value: Int
-    }
-}
-
-extension Server {
     private func get(elements: Elements, resolve: Resolution?) {
         switch elements.path {
         case .value:
@@ -245,3 +214,33 @@ extension Server {
   }
 }
 
+ extension Server {
+     private enum Method: String {
+         case get = "GET"
+         case post = "POST"
+     }
+     
+     private enum Path: String {
+         case value = "/value"
+         case chain = "/chain"
+         case creation = "/creation"
+         case exchange = "/exchange"
+         
+         var description: String {
+             return String(rawValue.dropFirst())
+         }
+     }
+ }
+
+ extension Server {
+     private struct Creation: Codable {
+         let account: String
+         let value: Int?
+     }
+     
+     private struct Exchange: Codable {
+         let to: String
+         let from: String
+         let value: Int
+     }
+ }
