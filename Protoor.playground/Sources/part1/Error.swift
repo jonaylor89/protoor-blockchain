@@ -8,7 +8,7 @@
 import Foundation
 
 struct Error: Response {
-    let Response: String = "ERROR"
+    let response: String = "ERROR"
     let transaction: String
     let reason: String
 }
