@@ -15,13 +15,13 @@ public struct Payload {
 extension Payload: Codable {}
 
 extension Payload: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return string
     }
 }
 
 extension Payload: Equatable {}
 
-func == (lhs: Payload, rhs: Payload) -> Bool {
+public func == (lhs: Payload, rhs: Payload) -> Bool {
     return lhs.description == rhs.description
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Observable {
-    static var observers: [String [String: Observer]] { get set }
+    static var observers: [String: [String: Observer]] { get set }
     var identifier: String { get }
 }
 

@@ -52,7 +52,7 @@ extension Server {
 }
 
 extension Server {
-    private func get(elements: Element, resolve: Resolution?) {
+    private func get(elements: Elements, resolve: Resolution?) {
         switch elements.path {
         case .value:
           guard let account = elements
@@ -117,9 +117,7 @@ extension Server {
         
         switch elements.path {
             case .creation:
-              guard let instance = try? JSONDecoder().decode(
-                                                Creation.self,
-                                                from: body) else {
+              guard let instance = try? JSONDecoder().decode(Creation.self, from: body) else {
                 resolve?(
                     Error(
                         transaction: elements.path.description,
@@ -141,8 +139,7 @@ extension Server {
               return
             
             case .exchange:
-              guard let instance = try? JSONDecoder()
-                                .decode(Exchange.self, from: body) else {
+              guard let instance = try? JSONDecoder().decode(Exchange.self, from: body) else {
                 resolve?(
                     Error(
                         transaction: elements.path.description,
@@ -247,3 +244,4 @@ extension Server {
     }
   }
 }
+

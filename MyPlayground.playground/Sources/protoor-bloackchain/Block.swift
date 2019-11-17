@@ -8,13 +8,13 @@
 import Foundation
 
 struct Block: Codable {
-    let hash: UUID().uuidString()
+    let hash = UUID().uuidString;
     let payload: Payload
     let transaction: String
     let previous: String
     let index: Int
 }
 
-extension Block: Codable {}
+// extension Block: Codable {}
 
 

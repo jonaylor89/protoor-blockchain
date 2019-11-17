@@ -28,7 +28,7 @@ func  == (lhs: Chain, rhs: Chain) -> Bool {
     return lhs.chain.count == rhs.chain.count && lhs.chain.reduce(true, {
         return $0 &&
             rhs.chain[$1.index].hash == $1.hash &&
-            && rhs.chain[$1.index].payload == $1.payload
+            rhs.chain[$1.index].payload == $1.payload
     })
 }
 
@@ -36,8 +36,7 @@ extension Chain {
   var isValid: Bool {
     return chain.reduce(true) {
       $0 && (
-         $1.index + 1 == chain.count
-         || chain[$1.index + 1].previous == $1.hash
+         ($1.index + 1 == chain.count) || chain[$1.index + 1].previous == $1.hash
         )
     }
   }
@@ -47,13 +46,13 @@ extension Chain {
     func find(account: String) -> Block? {
         for i in stride(from: chain.count - 1, through: 0, by: -1) {
             let block = chain[i]
-            if block.payload.account = account && Transaction.isValueTransaction(input: block.transaction) {
+            if (block.payload.account == account) && Transaction.isValueTransaction(input: block.transaction) {
                 
                 return block
               }
-            }
-            return nil
         }
+            
+        return nil
     }
 }
 
