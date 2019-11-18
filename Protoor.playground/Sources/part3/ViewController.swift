@@ -5,7 +5,6 @@
 //  Created by John Naylor on 11/17/19.
 //
 
-import Foundation
 import UIKit
 
 public class ViewController : UITableViewController {
@@ -28,12 +27,12 @@ public class ViewController : UITableViewController {
     private var accounts: [Payload] = []
     private var viewStyle: ViewStyle = .accounts
     
-    init() {
+    public init() {
         super.init(style: .grouped)
         initialize()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(style: .grouped)
         initialize()
     }
