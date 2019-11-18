@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ViewController : UITableViewController {
+public class ViewController : UITableViewController {
     private enum ViewStyle {
         case accounts
         case chain
@@ -46,20 +46,20 @@ class ViewController : UITableViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fetcher.fetch()
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    public override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return section == 0 ? 1 : viewStyle == .accounts ? accounts.count : chain.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "CELL") ?? UITableViewCell()
         
       switch indexPath.section {
@@ -78,7 +78,7 @@ class ViewController : UITableViewController {
       return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       if (indexPath.section == 0 && indexPath.row == 0) {
         switch (viewStyle) {
         case .chain: viewStyle = .accounts
@@ -92,7 +92,7 @@ class ViewController : UITableViewController {
 
 extension ViewController : Observer {
     
-    func didUpdate(withData data: Any?) {
+    public func didUpdate(withData data: Any?) {
         queue.async {
             if
                 let response = data as? Response,
